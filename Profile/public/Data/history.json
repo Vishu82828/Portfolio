@@ -1,0 +1,27 @@
+[
+    {
+      "role": "Frontend Developer",
+      "organisation": "Tech Corp",
+      "startDate": "Jan 2020",
+      "endDate": "Dec 2021",
+      "imageSrc": "techcorp.png",
+      "experiences": [
+        "Developed responsive web applications using React and Redux.",
+        "Collaborated with designers to create user-friendly interfaces.",
+        "Optimized web applications for maximum speed and scalability."
+      ]
+    },
+    {
+      "role": "Backend Developer",
+      "organisation": "Code Solutions",
+      "startDate": "Feb 2018",
+      "endDate": "Dec 2019",
+      "imageSrc": "codesolutions.png",
+      "experiences": [
+        "Built RESTful APIs using Node.js and Express.",
+        "Integrated third-party services and APIs.",
+        "Ensured data security and compliance with best practices."
+      ]
+    }
+  ]
+  

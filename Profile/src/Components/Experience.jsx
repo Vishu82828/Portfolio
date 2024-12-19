@@ -1,34 +1,41 @@
-import React from "react";
-// import skillImage1 from "../assets/skills/skill1.png"; // Example import
-// import skillImage2 from "../assets/skills/skill2.png"; // Example import
-// import historyImage1 from "../assets/history/history1.png"; // Example import
-// import historyImage2 from "../assets/history/history2.png"; // Example import
-// import skills from "../data/skills.json";
-// import history from "../data/history.json";
+import React, { useEffect, useState } from "react";
+import "../Styles/Experience.css";
 
 const Experience = () => {
-  // Map image imports to your data
-  const skillImages = {
-    skill1: skillImage1,
-    skill2: skillImage2,
-    // Add all skill image mappings
-  };
+  const [skills, setSkills] = useState([]);
+  const [history, setHistory] = useState([]);
 
-  const historyImages = {
-    history1: historyImage1,
-    history2: historyImage2,
-    // Add all history image mappings
-  };
+  useEffect(() => {
+    fetch("/Data/skills.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => setSkills(data))
+      .catch((error) => console.error("Error fetching skills data:", error));
+
+    fetch("/Data/history.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => setHistory(data))
+      .catch((error) => console.error("Error fetching history data:", error));
+  }, []);
 
   return (
-    <section className="container" id="experience">
+    <section className="experience" id="experience">
       <h2 className="title">Experience</h2>
       <div className="content">
         <div className="skills">
           {skills.map((skill, id) => (
             <div key={id} className="skill">
               <div className="skillImageContainer">
-                <img src={skillImages[skill.imageSrc]} alt={skill.title} />
+                <img src={`/assets/${skill.imageSrc}`} alt={skill.title} />
               </div>
               <p>{skill.title}</p>
             </div>
@@ -38,15 +45,15 @@ const Experience = () => {
           {history.map((historyItem, id) => (
             <li key={id} className="historyItem">
               <img
-                src={historyImages[historyItem.imageSrc]}
+                src={`/assets/${historyItem.imageSrc}`}
                 alt={`${historyItem.organisation} Logo`}
               />
               <div className="historyItemDetails">
                 <h3>{`${historyItem.role}, ${historyItem.organisation}`}</h3>
                 <p>{`${historyItem.startDate} - ${historyItem.endDate}`}</p>
                 <ul>
-                  {historyItem.experiences.map((experience, idx) => (
-                    <li key={idx}>{experience}</li>
+                  {historyItem.experiences.map((experience, id) => (
+                    <li key={id}>{experience}</li>
                   ))}
                 </ul>
               </div>

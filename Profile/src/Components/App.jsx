@@ -11,23 +11,26 @@ import 'react-toastify/dist/ReactToastify.css';
 import "@fontsource/outfit";
 import "@fontsource/roboto";
 import '../Styles/Var.css';
-import SignIn from './SingIn.jsx';
-import SignUp from './SingUp.jsx';
+// import SignIn from './SingIn.jsx';
+// import SignUp from './SingUp.jsx';
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <ErrorBoundary>
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/about" element={<About />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        {/* <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} /> */}
       </Routes>
       <ToastContainer />
+      </ErrorBoundary>
     </Router>
   );
 }

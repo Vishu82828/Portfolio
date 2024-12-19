@@ -1,19 +1,32 @@
 import React from "react";
+import "../Styles/ProjectCard.css";
 
-const ProjectCard = ({ project: { title, imageSrc, description, skills, demo, source } }) => {
+const ProjectCard = ({
+  project: { title, imageSrc, description, skills, demo, source },
+}) => {
   return (
-    <div className="projectCard">
-      <img src={require(`../assets/${imageSrc}`).default} alt={`Image of ${title}`} className="image" />
-      <h3 className="title">{title}</h3>
-      <p className="description">{description}</p>
-      <ul className="skills">
+    <div className="project-card">
+      <img
+        src={`/assets/${imageSrc}`}
+        alt={`Image of ${title}`}
+        className="project-image"
+      />
+      <h3 className="project-title">{title}</h3>
+      <p className="project-description">{description}</p>
+      <ul className="project-skills">
         {skills.map((skill, id) => (
-          <li key={id} className="skill">{skill}</li>
+          <li key={id} className="project-skill">
+            {skill}
+          </li>
         ))}
       </ul>
-      <div className="links">
-        <a href={demo} className="link">Demo</a>
-        <a href={source} className="link">Source</a>
+      <div className="project-links">
+        <a href={demo} className="project-link">
+          Demo
+        </a>
+        <a href={source} className="project-link">
+          Source
+        </a>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../Styles/Navbar.css";
 // import { FaCartPlus } from "react-icons/fa";
 // import { IoBagCheckOutline } from "react-icons/io5";
@@ -7,16 +7,6 @@ import "../Styles/Navbar.css";
 // import closeIcon from "../assets/nav/closeIcon.png";
 
 function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    if (userData && userData.username) {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => {
@@ -59,26 +49,6 @@ function Navbar() {
         ))}
       </div>
       <div className={`navbar__icons ${isOpen ? "open" : ""}`}>
-        {isLoggedIn ? (
-          <Link
-            className="navbar__text navbar__logout"
-            onClick={() => {
-              setIsLoggedIn(false);
-              navigate("/signin");
-            }}
-          >
-            LogOut
-          </Link>
-        ) : (
-          <>
-            <Link className="navbar__text navbar__signin" to="/signin">
-              Sign In
-            </Link>
-            <Link className="navbar__text navbar__signup" to="/signup">
-              Sign Up
-            </Link>
-          </>
-        )}
         {/* <Link className="navbar__text navbar__cart" to="/cart" title="Cart">
           <FaCartPlus className="navbar__icon" />
         </Link>
