@@ -5,10 +5,10 @@ const Hero = () => {
   return (
     <section className="hero-container">
       <div className="hero-content">
-        <h1 className="hero-title">Hi, I'm Ada</h1>
+        <h1 className="hero-title">Hi, I'm VISHWAJEET</h1>
         <p className="hero-description">
-          I'm a full-stack developer with 5 years of experience using React and
-          NodeJS. Reach out if you'd like to learn more!
+          I'm a full-stack developer with 0.6 years of experience using React and
+          MongoDB. Reach out if you'd like to learn more!
         </p>
         <a href="mailto:myemail@email.com" className="hero-contactBtn">
           Contact Me
