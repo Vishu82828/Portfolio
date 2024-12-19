@@ -1,0 +1,19 @@
+[
+    {
+      "title": "Project One",
+      "imageSrc": "project1.png",
+      "description": "This is the first project.",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "demo": "https://demo1.com",
+      "source": "https://github.com/project1"
+    },
+    {
+      "title": "Project Two",
+      "imageSrc": "project2.png",
+      "description": "This is the second project.",
+      "skills": ["React", "Redux", "Node.js"],
+      "demo": "https://demo2.com",
+      "source": "https://github.com/project2"
+    }
+  ]
+  
